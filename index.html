@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Font Awesome Cheatsheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .center {
+            padding: 0 0 0 0;
+            text-align: center;
+        }
+
+        .hand-icon {
+            font-size: 72px;
+        }
+
+        .img-hidden {
+            opacity: 0;
+        }
+
+        .img-show {
+            opacity: 1;
+        }
+
+        img {
+            position: relative;
+            transition: opacity 0.5s linear;
+        }
+    </style>
+    <title>Rock Paper Scissor - Made by Fahad</title>
+</head>
+
+<body>
+    <!-- <h2 class="text-center my-3">Rock Paper Scissor!</h2> -->
+    <div class="container">
+
+        <!-- Modal -->
+        <div class="modal" id="modal1" tabindex="-1" data-bs-backdrop = "static">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="winner">Modal title</h5>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success" onclick="location.reload()">Play Again</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card my-2">
+            <div class="card-header text-center">
+                <h4 class="text-weight-bold">Round - <strong id="round">6</strong></h4>
+            </div>
+            <div class="card-body text-center">
+                <div class="d-flex flex-wrap justify-content-around">
+                    <div class="mx-3">
+                        <h4>Wins</h4>
+                        <p class="text-weight-bold" style="font-size: 20px; font-weight:bold;" id="userWins">0</p>
+                    </div class="mx-3">
+                    <div>
+                        <h4>Ties</h4>
+                        <p class="text-weight-bold" style="font-size: 20px; font-weight:bold;" id="ties">0</p>
+                    </div class="mx-3">
+                    <div>
+                        <h4>Wins</h4>
+                        <p class="text-weight-bold" style="font-size: 20px; font-weight:bold;" id="computerWins">0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Canvas -->
+        <div class="row text-center">
+            <div class="col-6">
+                <div class="card">
+                    <!-- <div class="card-header">
+                        <h5 class="text-center">You</h5>
+                    </div> -->
+                    <div class="card-body mx-auto">
+                        <img src="images/hand_rock.png" id="userChoice" alt="" style="height: 50vh;">
+                    </div>
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <button class="btn btn-outline-dark rounded-circle user-hand-btn" id="rock">
+                                <i class="fa fa-hand-rock-o hand-icon"></i>
+                            </button>
+                            <button class="btn btn-outline-dark rounded-circle user-hand-btn" id="paper">
+                                <i class="fa fa-hand-paper-o hand-icon"></i>
+                            </button>
+                            <button class="btn btn-outline-dark rounded-circle user-hand-btn" id="scissor">
+                                <i class="fa fa-hand-scissors-o hand-icon"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="card">
+                    <!-- <div class="card-header">
+                        <h5 class="text-center">Computer</h5>
+                    </div> -->
+                    <div class="card-body mx-auto">
+                        <img src="images/hand_rock.png" id="computerChoice" alt=""
+                            style="height: 50vh;  transform: scaleX(-1);">
+                    </div>
+
+
+                    <div class="card">
+                        <div class="card-body">
+                            <button class="btn btn-light rounded-circle" id="computer-rock">
+                                <i class="fa fa-hand-rock-o hand-icon"></i>
+                            </button>
+                            <button class="btn btn-light rounded-circle" id="computer-paper">
+                                <i class="fa fa-hand-paper-o hand-icon"></i>
+                            </button>
+                            <button class="btn btn-light rounded-circle">
+                                <i class="fa fa-hand-scissors-o hand-icon" id="computer-scissor"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+        <!-- Optional JavaScript; choose one of the two! -->
+        <script src="script.js"></script>
+
+        <!-- Option 2: Separate Popper and Bootstrap JS -->
+        <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
