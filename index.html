@@ -43,11 +43,11 @@
     <div class="container">
 
         <!-- Modal -->
-        <div class="modal" id="modal1" tabindex="-1" data-bs-backdrop = "static">
+        <div class="modal" id="modal1" tabindex="-1" data-bs-backdrop="static">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="winner">Modal title</h5>
+                        <h5 class="modal-title" id="winner"></h5>
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-success" onclick="location.reload()">Play Again</button>
@@ -56,9 +56,37 @@
             </div>
         </div>
 
+        <!-- Modal For Level -->
+        <div class="modal" id="modalLevel" tabindex="-1" data-bs-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Rock Paper Scissor Game - Made by Fahad</h5>
+                        <!-- <br>
+                        <input type="text" class="form-control"> -->
+                    </div>
+                    <div class="modal-body">
+                        <h5 class="text-center">Computer Vs You</h5>
+                        <form id="roundForm">
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Round :</label>
+                                <input type="number" class="form-control" placeholder="Enter round number" value="3" id="round"
+                                aria-describedby="roundHelp">
+                                <div id="roundHelp" class="form-text">Challenge The Computer</div>
+                            </div>
+                        </form>
+                        </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success" id="startGame">Start</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Round State -->
         <div class="card my-2">
             <div class="card-header text-center">
-                <h4 class="text-weight-bold">Round - <strong id="round">6</strong></h4>
+                <h4 class="text-weight-bold">Round - <strong id="roundShow">6</strong></h4>
             </div>
             <div class="card-body text-center">
                 <div class="d-flex flex-wrap justify-content-around">
@@ -80,7 +108,7 @@
 
         <!-- Game Canvas -->
         <div class="row text-center">
-            <div class="col-6">
+            <div class="col-5">
                 <div class="card">
                     <div class="card-header">
                         <h5 class="text-center">You</h5>
@@ -96,7 +124,7 @@
                             <button class="btn btn-outline-dark rounded-circle user-hand-btn" id="paper">
                                 <i class="fa fa-hand-paper-o hand-icon"></i>
                             </button>
-                            <button class="btn btn-outline-dark rounded-circle user-hand-btn" id="scissor">
+                            <button class="btn btn-outline-dark rounded-circle user-hand-btn" id="scissors">
                                 <i class="fa fa-hand-scissors-o hand-icon"></i>
                             </button>
                         </div>
@@ -104,8 +132,16 @@
 
                 </div>
             </div>
-
-            <div class="col-6">
+            <div class="col-2">
+                <div class="card">
+                    <div class="card-header">Round</div>
+                    <div class="card-body border-0" style="min-height:300px; max-height: 420px;overflow-y: scroll;">
+                        <ul class="list-group list-group-flush" id="winList">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-5">
                 <div class="card">
                     <div class="card-header">
                         <h5 class="text-center">Computer</h5>
@@ -125,7 +161,7 @@
                                 <i class="fa fa-hand-paper-o hand-icon"></i>
                             </button>
                             <button class="btn btn-light rounded-circle disabled">
-                                <i class="fa fa-hand-scissors-o hand-icon" id="computer-scissor"></i>
+                                <i class="fa fa-hand-scissors-o hand-icon" id="computer-scissors"></i>
                             </button>
                         </div>
                     </div>
