@@ -13,13 +13,32 @@
     <!-- Font Awesome Cheatsheet -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
+        body{
+            overflow: auto;
+        }
+        @media only screen and (max-width: 996px) {
+            body {
+                background-color: lightblue;
+            }
+            .vs-card {
+                display: none;
+            }
+            .hand-icon{
+                font-size: 18px!important;
+            }
+            .card {
+                width: 100%;
+            }
+
+        }
+
         .center {
             padding: 0 0 0 0;
             text-align: center;
         }
 
         .hand-icon {
-            font-size: 67px;
+            font-size: 60px;
         }
 
         .img-hidden {
@@ -33,6 +52,11 @@
         img {
             position: relative;
             transition: opacity 0.5s linear;
+        }
+
+        .responsive-image {
+            width: 100%;
+            height: auto;
         }
     </style>
     <title>Rock Paper Scissor - Made by Fahad</title>
@@ -70,12 +94,12 @@
                         <form id="roundForm">
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Round :</label>
-                                <input type="number" class="form-control" placeholder="Enter round number" value="3" id="round"
-                                aria-describedby="roundHelp">
+                                <input type="number" class="form-control" placeholder="Enter round number" value="3"
+                                    id="round" aria-describedby="roundHelp">
                                 <div id="roundHelp" class="form-text">Challenge The Computer</div>
                             </div>
                         </form>
-                        </div>
+                    </div>
                     <div class="modal-footer">
                         <button class="btn btn-success" id="startGame">Start</button>
                     </div>
@@ -107,14 +131,15 @@
         </div>
 
         <!-- Game Canvas -->
-        <div class="row text-center">
-            <div class="col-5">
+        <div class="d-flex justify-content-between text-center" style="width: 100%; margin:0 auto;">
+            <div  style="min-width: 35vw;">
                 <div class="card">
                     <div class="card-header">
                         <h5 class="text-center">You</h5>
                     </div>
                     <div class="card-body mx-auto">
-                        <img src="images/hand_rock.png" id="userChoice" alt="" style="height: 45vh;">
+                        <img class="img-fluid img-thumbnail" src="images/hand_rock.png" id="userChoice" alt=""
+                            style="height: 45vh;">
                     </div>
                     <div class="card">
                         <div class="card-body text-center">
@@ -132,22 +157,23 @@
 
                 </div>
             </div>
-            <div class="col-2">
+            <div class="vs-card" style="width: auto;">
                 <div class="card">
                     <div class="card-header">Round</div>
-                    <div class="card-body border-0" style="min-height:300px; max-height: 420px;overflow-y: scroll;">
+                    <div class="card-body border-0" style="height:420px; overflow-y: scroll;">
                         <ul class="list-group list-group-flush" id="winList">
+                            <li class="list-group-item"><i class="fa fa-user text-primary"></i> <strong class="mx-2">VS</strong> <i class="fa fa-desktop text-danger"></i></li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-5">
+            <div style="min-width: 35vw;">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="text-center">Computer</h5>
+                        <h6 class="text-center">Computer</h6>
                     </div>
                     <div class="card-body mx-auto">
-                        <img src="images/hand_rock.png" id="computerChoice" alt=""
+                        <img class="responsive-img img-thumbnail" src="images/hand_rock.png" id="computerChoice" alt=""
                             style="height: 45vh;  transform: scaleX(-1);">
                     </div>
 

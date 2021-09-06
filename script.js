@@ -104,7 +104,7 @@ document.querySelectorAll(".user-hand-btn").forEach((btn) => {
 
         computerChoice.setAttribute("src", `${folderName}/hand_${computer}.png`)
         userChoice.setAttribute("src", `${folderName}/hand_${user}.png`)
-        document.getElementById(`computer-${computer}`).focus()
+        document.getElementById(`computer-${computer}`).click()
         e.target.blur()
         if (roundWinner === "user") {userHandColor = "danger";computerHandColor = "black"} else {computerHandColor="danger";userHandColor="black"}
         // Add the round choices and wins list
