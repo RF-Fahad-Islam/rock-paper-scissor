@@ -67,9 +67,9 @@ function getRoundWinner(victory) {
 // Function to get overall winner based on all rounds
 function getWinner() {
     if (userWins > computerWins) {
-        return "you"
-    } else if (userWins < computerWins) {
         return "user"
+    } else if (userWins < computerWins) {
+        return "computer"
     } else {
         return "draw"
     }
@@ -114,7 +114,7 @@ document.querySelectorAll(".user-hand-btn").forEach((btn) => {
         <strong class="mx-2">${Number(victory)}</strong>
         <i class="fa fa-hand-${computer}-o text-${computerHandColor}"></i>
         </li>`
-        
+
         if (roundWinner !== "draw") {
             // winState.innerHTML += `<ul>${i}. ${roundWinner} win the Round</ul>`
             let r = `${roundWinner}Wins`
